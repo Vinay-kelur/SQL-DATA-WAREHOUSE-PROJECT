@@ -1,4 +1,7 @@
+use DataWarehouse;
 
+IF OBJECT_ID('bronze.crm_cust_info', 'u') is not null
+	drop table bronze.crm_cust_info;
 create table bronze.crm_cust_info(
 	cst_id int,
 	cst_key nvarchar(50),
@@ -9,6 +12,8 @@ create table bronze.crm_cust_info(
 	cst_create_date date
 );
 
+IF OBJECT_ID('bronze.crm_prod_info', 'u') is not null
+	drop table bronze.crm_prod_info;
 create table bronze.crm_prod_info(
 	prd_id int,
 	prd_key nvarchar(50),
@@ -19,6 +24,8 @@ create table bronze.crm_prod_info(
 	prd_end_dt date ---need to check the datatype(date or datetime?)
 );
 
+IF OBJECT_ID('bronze.crm_sales_details', 'u') is not null
+	drop table bronze.crm_sales_details;
 create table bronze.crm_sales_details(
 	sls_ord_num nvarchar(50),
 	sls_prd_key nvarchar(50),
@@ -31,18 +38,23 @@ create table bronze.crm_sales_details(
 	sls_price int
 );
 
-
+IF OBJECT_ID('bronze.erp_cust_az12', 'u') is not null
+	drop table bronze.erp_cust_az12;
 create table bronze.erp_cust_az12(
 	cid nvarchar(50),
 	bdate date,
 	gen nvarchar(50)	
 );
 
+IF OBJECT_ID('bronze.erp_loc_a101', 'u') is not null
+	drop table bronze.erp_loc_a101;
 create table bronze.erp_loc_a101(
 	cid nvarchar(50),
 	cntry nvarchar(50)	
 );
 
+IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'u') is not null
+	drop table bronze.erp_px_cat_g1v2;
 create table bronze.erp_px_cat_g1v2(
 	id nvarchar(50),
 	cat nvarchar(50),	
