@@ -20,8 +20,8 @@ create table bronze.crm_prod_info(
 	prd_nm nvarchar(50),		 
 	prd_cost int,
 	prd_line nvarchar(50),
-	prd_start_dt date,  ---need to check the datatype(date or datetime?)
-	prd_end_dt date ---need to check the datatype(date or datetime?)
+	prd_start_dt datetime,  ---need to check the datatype(date or datetime?)
+	prd_end_dt datetime ---need to check the datatype(date or datetime?)
 );
 
 IF OBJECT_ID('bronze.crm_sales_details', 'u') is not null

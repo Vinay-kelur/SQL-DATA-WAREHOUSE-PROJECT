@@ -159,3 +159,6 @@ Begin
 
 	end catch
 end
+
+
+exec bronze.load_bronze;
