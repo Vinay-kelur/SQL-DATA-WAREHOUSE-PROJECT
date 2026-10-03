@@ -178,7 +178,7 @@ create or alter procedure silver.load_silver As
 			select 
 			Replace(cid,'-','') cid,
 			case when trim(cntry)='DE' then 'Germany'
-				 when trim(cntry)='US' or trim(cntry)='USA' then 'United Sates'
+				 when trim(cntry)='US' or trim(cntry)='USA' then 'United States'
 				 when trim(cntry)='' or trim(cntry) is null then 'n/a'
 				 else trim(cntry)
 			end cntry

@@ -1,4 +1,4 @@
-use DataWarehouse;
+  use DataWarehouse;
 
 IF OBJECT_ID('silver.crm_cust_info', 'u') is not null
 	drop table silver.crm_cust_info;
