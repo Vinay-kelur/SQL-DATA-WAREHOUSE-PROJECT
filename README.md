@@ -48,12 +48,7 @@ The solution follows the **Medallion Architecture** to progressively refine data
 <!-- Upload your architecture diagram to the repository (for example, docs/architecture.png)
      and update the path below if your filename or folder differs. -->
 
-  <img
-    src="docs/Architecture_Diagram (2).png"
-    alt="High-Level Data Warehouse Architecture"
-    width="100%"
-    style="display: block;"
-  />
+![Data Architecture](docs/Architecture_Diagram (2).png)
 
 <sub><b>Figure 1.</b> High-level data flow across the Bronze, Silver, and Gold layers.</sub>
 
