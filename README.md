@@ -1,3 +1,13 @@
+
+<div align="center">
+  <img
+    src="docs/Architecture_Diagram%20(2).png"
+    alt="High-Level Data Warehouse Architecture: ERP and CRM source files flow through Bronze, Silver, and Gold layers."
+    width="100%"
+  />
+  <br/>
+  <sub><b>Figure 1.</b> High-level architecture of the data warehouse and its Medallion layers.</sub>
+</div>
 <div align="center">
 
 # 🚀 Data Warehouse Project
@@ -31,17 +41,8 @@ Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this 
 
 The solution follows the **Medallion Architecture**, progressively refining ERP and CRM data through Bronze, Silver, and Gold layers before making it available for analytical queries.
 
-<div align="center">
-  <img
-    src="docs/Architecture_Diagram%20(2).png"
-    alt="High-Level Data Warehouse Architecture: ERP and CRM source files flow through Bronze, Silver, and Gold layers."
-    width="100%"
-  />
-  <br/>
-  <sub><b>Figure 1.</b> High-level architecture of the data warehouse and its Medallion layers.</sub>
-</div>
 
-> **Tip:** The image is set to `width="100%"` so it uses the available README content width, similar to your reference. If GitHub doesn't resolve the filename with spaces and parentheses, rename the image to `architecture-diagram.png` and update the path accordingly.
+
 
 ## 🔎 Architecture Overview
 
