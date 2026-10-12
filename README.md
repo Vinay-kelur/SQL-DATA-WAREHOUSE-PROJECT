@@ -25,65 +25,52 @@ Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this 
 
 ---
 
-<div align="center">
-
-
-
-
-# 🏗️ Data Architecture
+## 🏗️ Data Architecture
 
 ### From Raw Source Files to Analytics-Ready Data
 
-*An end-to-end warehouse architecture built around the Medallion pattern.*
+The solution follows the **Medallion Architecture**, progressively refining ERP and CRM data through Bronze, Silver, and Gold layers before making it available for analytical queries.
 
+<div align="center">
   <img
-    src="docs/Architecture_Diagram (2).png"
-    alt="High-Level Data Warehouse Architecture"
-    width="1000"
+    src="docs/Architecture_Diagram%20(2).png"
+    alt="High-Level Data Warehouse Architecture: ERP and CRM source files flow through Bronze, Silver, and Gold layers."
+    width="100%"
   />
+  <br/>
+  <sub><b>Figure 1.</b> High-level architecture of the data warehouse and its Medallion layers.</sub>
+</div>
 
-
-
----
+> **Tip:** The image is set to `width="100%"` so it uses the available README content width, similar to your reference. If GitHub doesn't resolve the filename with spaces and parentheses, rename the image to `architecture-diagram.png` and update the path accordingly.
 
 ## 🔎 Architecture Overview
 
-The solution follows the **Medallion Architecture** to progressively refine data from source files into trusted, business-ready datasets. Data from **ERP** and **CRM** CSV files is ingested into SQL Server, processed through three logical layers, and prepared for analytical reporting.
+The architecture separates ingestion, data quality processing, and analytical modeling into distinct layers. This makes the data flow easier to understand, maintain, and extend.
 
-
-<!-- Upload your architecture diagram to the repository (for example, docs/architecture.png)
-     and update the path below if your filename or folder differs. -->
-
-
-
-<sub><b>Figure 1.</b> High-level data flow across the Bronze, Silver, and Gold layers.</sub>
-
-
-
-## 🥉 Bronze Layer — Raw Data
+### 🥉 Bronze Layer — Raw Data
 
 > **Purpose:** Preserve source data as received.
 
-- Ingest raw CSV files from the ERP and CRM source systems into SQL Server.
-- Store source records in raw tables before applying business transformations.
-- Keep ingestion logic separate from cleansing and modeling logic.
+- 📥 Ingest CSV files from ERP and CRM source systems into SQL Server.
+- 🗄️ Store raw records before applying business transformations.
+- 🔍 Keep ingestion logic separate from cleansing and modeling logic.
 
-## 🥈 Silver Layer — Cleaned & Standardized Data
+### 🥈 Silver Layer — Cleaned & Standardized Data
 
 > **Purpose:** Improve data quality and consistency.
 
-- Cleanse and standardize data types, formats, and values.
-- Address data quality issues such as missing values and duplicate records where applicable.
-- Normalize and integrate related data from ERP and CRM.
-- Prepare consistent datasets for downstream modeling.
+- 🧹 Cleanse and standardize data types, formats, and values.
+- ✅ Address missing values and duplicate records where applicable.
+- 🔗 Normalize and integrate related data from ERP and CRM.
+- 🛠️ Prepare consistent datasets for downstream modeling.
 
-## 🥇 Gold Layer — Business-Ready Data
+### 🥇 Gold Layer — Business-Ready Data
 
 > **Purpose:** Make data easy to query for analytics.
 
-- Model integrated data into **fact and dimension tables** using a star schema.
-- Apply business rules and prepare relevant measures and descriptive attributes.
-- Support analytical SQL queries, reporting, and business insights.
+- ⭐ Model integrated data into **fact and dimension tables** using a star schema.
+- 📐 Apply business rules and prepare relevant measures and descriptive attributes.
+- 📊 Support analytical SQL queries, reporting, and business insights.
 
 ## 🔄 End-to-End Data Flow
 
@@ -103,9 +90,9 @@ The solution follows the **Medallion Architecture** to progressively refine data
 
 ---
 
-<sub>🛠️ **Core platform:** SQL Server Express · SQL Server Management Studio (SSMS) · SQL</sub>
+<div align="center">
 
-### 🧱 Raw Data → 🔄 Transformation → 📊 Business Insights
+🛠️ **Core Platform:** SQL Server Express · SQL Server Management Studio (SSMS) · SQL
 
 *Building a stronger foundation in modern data engineering, one layer at a time.*
 
