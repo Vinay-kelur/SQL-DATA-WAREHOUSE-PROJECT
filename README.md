@@ -44,7 +44,6 @@ Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this 
 
 The solution follows the **Medallion Architecture** to progressively refine data from source files into trusted, business-ready datasets. Data from **ERP** and **CRM** CSV files is ingested into SQL Server, processed through three logical layers, and prepared for analytical reporting.
 
-<div align="center">
 
 <!-- Upload your architecture diagram to the repository (for example, docs/architecture.png)
      and update the path below if your filename or folder differs. -->
@@ -58,7 +57,7 @@ The solution follows the **Medallion Architecture** to progressively refine data
 </div>
 <sub><b>Figure 1.</b> High-level data flow across the Bronze, Silver, and Gold layers.</sub>
 
-</div>
+
 
 ## 🥉 Bronze Layer — Raw Data
 
