@@ -28,7 +28,7 @@ Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this 
 <div align="center">
 
 
-<div align="center">
+
 
 # 🏗️ Data Architecture
 
@@ -43,7 +43,6 @@ Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this 
   />
 
 
-</div>
 
 ---
 
