@@ -51,8 +51,9 @@ The solution follows the **Medallion Architecture** to progressively refine data
 <div align="center">
   <img
     src="docs/Architecture_Diagram (2).png"
-    alt="Data Warehouse Architecture Diagram"
+    alt="High-Level Data Warehouse Architecture"
     width="100%"
+    style="display: block;"
   />
 </div>
 <sub><b>Figure 1.</b> High-level data flow across the Bronze, Silver, and Gold layers.</sub>
