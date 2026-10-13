@@ -3,8 +3,6 @@
 # 🚀 Data Warehouse Project
 ### End-to-End Data Engineering
 
-**From raw operational data to trusted, analytics-ready insights.**
-
 <p>
   <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="SQL Server" />
   <img src="https://img.shields.io/badge/Medallion%20Architecture-Bronze%20%7C%20Silver%20%7C%20Gold-CD7F32?style=for-the-badge" alt="Medallion Architecture" />
