@@ -38,6 +38,8 @@ The project brings together four core areas of data engineering:
 
 This project is relevant to people exploring **SQL development, data engineering, ETL development, data architecture, data modeling, and data analytics**.
 
+---
+
 ## 🎯 Project Requirements
 
 ### Objective
@@ -98,9 +100,36 @@ The warehouse follows the **Medallion Architecture**, progressively refining dat
 
 ---
 
+## 🔄 End-to-End Data Flow
+
+### Following Data from Source to Gold
+
+The data flow diagram shows how data from the **CRM and ERP source systems** moves through each Medallion layer. It highlights the table-level progression from raw ingestion in Bronze, through cleansing and standardization in Silver, to the business-ready fact and dimension tables in Gold.
+
+<div align="center">
+  <img
+    src="docs/data_flow_diagram.png"
+    alt="Data flow diagram showing CRM and ERP source data moving through Bronze and Silver tables into Gold fact_sales, dim_customer, and dim_products tables."
+    width="1000"
+  />
+  <br/>
+  <sub><b>Figure 2.</b> Table-level data flow from source systems through Bronze and Silver into the Gold layer.</sub>
+</div>
+
+### 🧭 How to Read the Diagram
+
+- **📁 Sources — ERP & CRM:** CSV files provide the raw customer, product, category, and sales-related data.
+- **🥉 Bronze — Raw Ingestion:** Source records are loaded into raw tables, keeping ingestion separate from downstream transformations.
+- **🥈 Silver — Cleansed & Standardized:** Data is cleaned and made more consistent before it is combined for analytics.
+- **🥇 Gold — Business-Ready Model:** The transformed data feeds the sales fact table and customer and product dimensions for analytical queries.
+
+**Why it matters:** Separating these stages makes the pipeline easier to reason about, troubleshoot, and maintain, while giving each layer a clear responsibility.
+
+---
+
 ## 🔗 Source-System Integration
 
-ERP and CRM systems can hold related information in different structures. The integration model illustrates the relationships between source entities and how relevant product, customer, and sales information can be connected for the warehouse.
+ERP and CRM systems can store related information in different structures. The integration model illustrates the relationships between source entities and how relevant product, customer, and sales information can be connected for the warehouse.
 
 <div align="center">
   <img
@@ -109,7 +138,7 @@ ERP and CRM systems can hold related information in different structures. The in
     width="1000"
   />
   <br/>
-  <sub><b>Figure 2.</b> Source-system integration model for ERP and CRM entities.</sub>
+  <sub><b>Figure 3.</b> Source-system integration model for ERP and CRM entities.</sub>
 </div>
 
 ---
@@ -125,7 +154,7 @@ The Gold layer is designed for analytical queries using a **star schema**. The s
     width="1000"
   />
   <br/>
-  <sub><b>Figure 3.</b> Sales data mart star schema with a sales fact table and related dimensions.</sub>
+  <sub><b>Figure 4.</b> Sales data mart star schema with a sales fact table and related dimensions.</sub>
 </div>
 
 ### 🧱 Model at a Glance
@@ -139,15 +168,13 @@ The Gold layer is designed for analytical queries using a **star schema**. The s
 
 ---
 
-## 🔄 End-to-End Data Flow
+## 🔄 End-to-End Workflow Summary
 
-The pipeline moves data through these stages:
-
-1. **📁 Source Systems — ERP & CRM:** Raw business data is provided through CSV files.
-2. **🥉 Bronze — Raw Ingestion:** Source data is loaded into SQL Server raw tables.
-3. **🥈 Silver — Data Transformation:** Data is cleansed, standardized, validated, and integrated.
-4. **🥇 Gold — Dimensional Modeling:** Business-ready data is organized into fact and dimension tables.
-5. **📊 Analytics & Reporting:** SQL queries use the modeled data to answer business questions.
+1. **📁 Source:** ERP and CRM CSV files.
+2. **🥉 Bronze:** Raw data ingestion into SQL Server.
+3. **🥈 Silver:** Cleansing, standardization, and integration.
+4. **🥇 Gold:** Fact and dimension modeling for analytics.
+5. **📊 Consumption:** SQL queries and reporting on business-ready data.
 
 ---
 
@@ -174,8 +201,6 @@ The pipeline moves data through these stages:
 
 <div align="center">
 
-🛠️ **Core focus:** SQL Server · ETL · Data Quality · Data Integration · Dimensional Modeling
-
-*Building a stronger foundation in modern data engineering, one layer at a time.*
+🛠️ **Core Focus:** SQL Server · ETL · Data Quality · Data Integration · Dimensional Modeling
 
 </div>
