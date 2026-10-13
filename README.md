@@ -19,9 +19,39 @@
 
 This repository showcases the **end-to-end development of a modern data warehouse**, transforming raw data from **ERP** and **CRM** source systems into clean, integrated, and analytics-ready datasets.
 
-Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this project explores industry-relevant data engineering practices—from **ETL pipeline development** and **data quality management** to **data integration** and **dimensional modeling**.
+Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, the project explores practical data engineering concepts including ETL pipeline development, data quality management, source-system integration, and dimensional modeling.
 
-🎯 **The goal:** turn fragmented operational data into a reliable foundation for analytical reporting and data-driven business decisions.
+🎯 **Project goal:** transform fragmented operational data into a reliable foundation for analytical reporting and data-driven business decisions.
+
+---
+
+## 📖 Project Overview
+
+The project brings together four core areas of data engineering:
+
+| Area | What it covers |
+|---|---|
+| 🏗️ **Data Architecture** | Organizing the warehouse into Bronze, Silver, and Gold layers. |
+| 🔄 **ETL Pipelines** | Loading source CSV files and transforming data for downstream use. |
+| 🧩 **Data Modeling** | Designing fact and dimension tables for analytical queries. |
+| 📊 **Analytics & Reporting** | Preparing structured data for SQL-based reporting and business insights. |
+
+This project is relevant to people exploring **SQL development, data engineering, ETL development, data architecture, data modeling, and data analytics**.
+
+## 🎯 Project Requirements
+
+### Objective
+
+Develop a modern SQL Server data warehouse that consolidates sales data from ERP and CRM source systems to support analytical reporting and informed decision-making.
+
+### Scope & Specifications
+
+- **Data sources:** Import CSV datasets from two source systems — ERP and CRM.
+- **Data quality:** Identify and resolve data quality issues before analysis.
+- **Integration:** Combine relevant information from both systems into a consistent, analytics-friendly data model.
+- **Data modeling:** Structure business-ready data into fact and dimension tables.
+- **Scope boundary:** Focus on the latest available dataset; historical tracking and historization are not required.
+- **Documentation:** Document the architecture and data model to support technical teams and business stakeholders.
 
 ---
 
@@ -29,70 +59,122 @@ Built with **SQL Server** and the **Medallion Architecture** 🥉🥈🥇, this 
 
 ### From Raw Source Files to Analytics-Ready Data
 
-The solution follows the **Medallion Architecture**, progressively refining ERP and CRM data through Bronze, Silver, and Gold layers before making it available for analytical queries.
+The warehouse follows the **Medallion Architecture**, progressively refining data through Bronze, Silver, and Gold layers.
 
 <div align="center">
   <img
     src="docs/Architecture_Diagram%20(2).png"
-    alt="High-Level Data Warehouse Architecture: ERP and CRM source files flow through Bronze, Silver, and Gold layers."
-    width="100%"
+    alt="High-level data warehouse architecture showing ERP and CRM sources flowing through Bronze, Silver, and Gold layers."
+    width="1000"
   />
   <br/>
-  <sub><b>Figure 1.</b> High-level architecture of the data warehouse and its Medallion layers.</sub>
+  <sub><b>Figure 1.</b> High-level architecture and data flow across the warehouse layers.</sub>
 </div>
-
-
-
-## 🔎 Architecture Overview
-
-The architecture separates ingestion, data quality processing, and analytical modeling into distinct layers. This makes the data flow easier to understand, maintain, and extend.
 
 ### 🥉 Bronze Layer — Raw Data
 
-> **Purpose:** Preserve source data as received.
+> **Purpose: preserve source data as received.**
 
-- 📥 Ingest CSV files from ERP and CRM source systems into SQL Server.
-- 🗄️ Store raw records before applying business transformations.
-- 🔍 Keep ingestion logic separate from cleansing and modeling logic.
+- 📥 Ingest ERP and CRM CSV files into SQL Server raw tables.
+- 🗄️ Keep source records available before applying business transformations.
+- 🔍 Separate ingestion logic from downstream cleansing and modeling.
 
 ### 🥈 Silver Layer — Cleaned & Standardized Data
 
-> **Purpose:** Improve data quality and consistency.
+> **Purpose: improve data quality and consistency.**
 
 - 🧹 Cleanse and standardize data types, formats, and values.
-- ✅ Address missing values and duplicate records where applicable.
-- 🔗 Normalize and integrate related data from ERP and CRM.
-- 🛠️ Prepare consistent datasets for downstream modeling.
+- ✅ Address missing values, duplicates, and inconsistent records where applicable.
+- 🔗 Integrate related entities from ERP and CRM.
+- 🛠️ Prepare consistent datasets for analytical modeling.
 
 ### 🥇 Gold Layer — Business-Ready Data
 
-> **Purpose:** Make data easy to query for analytics.
+> **Purpose: make data straightforward to query for analytics.**
 
-- ⭐ Model integrated data into **fact and dimension tables** using a star schema.
-- 📐 Apply business rules and prepare relevant measures and descriptive attributes.
-- 📊 Support analytical SQL queries, reporting, and business insights.
+- ⭐ Model integrated data into fact and dimension tables.
+- 📐 Apply relevant business rules and prepare measures and descriptive attributes.
+- 📊 Provide a stable foundation for SQL analysis and reporting.
+
+---
+
+## 🔗 Source-System Integration
+
+ERP and CRM systems can hold related information in different structures. The integration model illustrates the relationships between source entities and how relevant product, customer, and sales information can be connected for the warehouse.
+
+<div align="center">
+  <img
+    src="docs/Integration_Model.png"
+    alt="Integration model showing relationships between ERP and CRM source tables."
+    width="1000"
+  />
+  <br/>
+  <sub><b>Figure 2.</b> Source-system integration model for ERP and CRM entities.</sub>
+</div>
+
+---
+
+## ⭐ Data Modeling — Sales Data Mart
+
+The Gold layer is designed for analytical queries using a **star schema**. The sales fact table stores measurable sales activity and connects to descriptive dimensions, such as customers and products.
+
+<div align="center">
+  <img
+    src="docs/sales_data_mart.png"
+    alt="Sales data mart star schema showing the gold fact sales table and customer and product dimensions."
+    width="1000"
+  />
+  <br/>
+  <sub><b>Figure 3.</b> Sales data mart star schema with a sales fact table and related dimensions.</sub>
+</div>
+
+### 🧱 Model at a Glance
+
+- **`gold.fact_sales`** — central fact table for sales measures and related dimension keys.
+- **`gold.dim_customers`** — descriptive customer attributes for customer-level analysis.
+- **`gold.dim_products`** — product attributes for product and category analysis.
+- **Star schema** — simplifies analytical joins and supports reporting across business dimensions.
+
+*The final schema and column definitions should reflect the implemented SQL tables and source datasets.*
+
+---
 
 ## 🔄 End-to-End Data Flow
 
-<div align="center">
+The pipeline moves data through these stages:
 
-**📁 ERP & CRM CSV Files**  
-⬇️  
-**🥉 Bronze · Raw Ingestion**  
-⬇️  
-**🥈 Silver · Cleansing, Standardization & Integration**  
-⬇️  
-**🥇 Gold · Dimensional Modeling & Business Logic**  
-⬇️  
-**📊 SQL Analytics & Reporting**
+1. **📁 Source Systems — ERP & CRM:** Raw business data is provided through CSV files.
+2. **🥉 Bronze — Raw Ingestion:** Source data is loaded into SQL Server raw tables.
+3. **🥈 Silver — Data Transformation:** Data is cleansed, standardized, validated, and integrated.
+4. **🥇 Gold — Dimensional Modeling:** Business-ready data is organized into fact and dimension tables.
+5. **📊 Analytics & Reporting:** SQL queries use the modeled data to answer business questions.
 
-</div>
+---
+
+## 🛠️ Technology Stack
+
+| Technology | Role |
+|---|---|
+| **SQL Server Express** | Database engine for the warehouse |
+| **SQL** | Data loading, transformation, validation, and analytical queries |
+| **SQL Server Management Studio (SSMS)** | Database development and administration |
+| **CSV** | ERP and CRM source data format |
+| **Draw.io** | Architecture and data-model diagrams |
+| **Git & GitHub** | Version control and project documentation |
+
+---
+
+## 📌 Project Scope Notes
+
+- The solution focuses on the latest available dataset.
+- Historical change tracking and historization are outside the current scope.
+- Reporting is supported through SQL-based analytical queries; additional BI or machine-learning integrations are not implied unless implemented separately.
 
 ---
 
 <div align="center">
 
-🛠️ **Core Platform:** SQL Server Express · SQL Server Management Studio (SSMS) · SQL
+🛠️ **Core focus:** SQL Server · ETL · Data Quality · Data Integration · Dimensional Modeling
 
 *Building a stronger foundation in modern data engineering, one layer at a time.*
 
